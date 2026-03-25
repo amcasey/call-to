@@ -1,0 +1,23 @@
+name: Call To
+
+on:
+  workflow_dispatch:
+    inputs:
+      should_succeed:
+        description: Whether the workflow should succeed
+        required: true
+        type: boolean
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Succeed
+        if: ${{ inputs.should_succeed }}
+        run: echo "Succeeding now"
+
+      - name: Fail
+        if: ${{ !inputs.should_succeed }}
+        run: |
+          echo "Failing now"
+          exit 1
