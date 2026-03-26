@@ -7,6 +7,12 @@ on:
         description: Whether the workflow should succeed
         required: true
         type: boolean
+  workflow_call:
+    inputs:
+      should_succeed:
+        description: Whether the workflow should succeed
+        required: true
+        type: boolean
 
 jobs:
   run:
